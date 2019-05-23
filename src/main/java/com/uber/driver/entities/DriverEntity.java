@@ -20,28 +20,28 @@ public class DriverEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@Column(name = "name")
 	private String name;
-	
+
 	@Column(name = "email")
 	private String email;
-	
+
 	@Column(name = "address")
 	private String address;
-	
+
 	@Column(name = "phone")
 	private String phone;
-	
+
 	@Column(name = "driver_license_no")
 	private String driverLicense;
-	
+
 	@Column(name = "created_at")
 	private Date createdAt;
-	
+
 	@Column(name = "updated_at")
 	private Date updatedAt;
-	
+
 	@OneToMany(mappedBy = "driver", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<VehicleEntity> vehicles;
 
@@ -108,5 +108,13 @@ public class DriverEntity {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-		
+
+	public List<VehicleEntity> getVehicles() {
+		return vehicles;
+	}
+
+	public void setVehicles(List<VehicleEntity> vehicles) {
+		this.vehicles = vehicles;
+	}
+
 }
